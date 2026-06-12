@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>botanical_illustration — Style Reference</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #111; overflow: hidden; font-family: 'Georgia', serif; }
+    canvas { display: block; width: 100vw; height: 100vh; }
+
+    #overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none; z-index: 10;
+    }
+
+    #plate-label {
+      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
+      text-align: center; color: rgba(28,20,10,0.85);
+      background: rgba(245,222,179,0.82);
+      padding: 10px 24px 8px; border-radius: 2px;
+      border: 1px solid rgba(139,69,19,0.25);
+      pointer-events: none;
+    }
+    #plate-label .regime {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(139,69,19,0.7); margin-bottom: 4px; font-family: monospace;
+    }
+    #plate-label .latin {
+      font-size: 17px; font-style: italic; font-weight: normal;
+      color: #1c140a; margin-bottom: 2px;
+    }
+    #plate-label .reference {
+      font-size: 11px; color: rgba(28,20,10,0.5); letter-spacing: 0.06em;
+    }
+
+    #nav {
+      position: fixed; bottom: 32px; right: 32px;
+      display: flex; gap: 8px; pointer-events: all;
+    }
+    #nav button {
+      background: rgba(245,222,179,0.85); border: 1px solid rgba(139,69,19,0.3);
+      color: #1c140a; font-family: monospace; font-size: 13px;
+      padding: 6px 14px; cursor: pointer; border-radius: 2px;
+      transition: background 0.15s;
+    }
+    #nav button:hover { background: rgba(218,165,32,0.4); }
+
+    #shader-index {
+      position: fixed; bottom: 32px; left: 32px;
+      font-family: monospace; font-size: 11px;
+      color: rgba(245,222,179,0.5); pointer-events: none;
+    }
+
+    #params-panel {
+      position: fixed; top: 20px; right: 20px;
+      background: rgba(10,8,5,0.8); border: 1px solid rgba(139,69,19,0.25);
+      padding: 12px 16px; border-radius: 2px; pointer-events: all;
+      min-width: 220px;
+    }
+    #params-panel h3 {
+      font-family: monospace; font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(218,165,32,0.7); margin-bottom: 10px;
+    }
+    .param-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .param-row label {
+      font-family: monospace; font-size: 10px; color: rgba(245,222,179,0.5);
+      width: 140px; flex-shrink: 0;
+    }
+    .param-row input[type=range] { width: 80px; accent-color: #DAA520; }
+    .param-row .val {
+      font-family: monospace; font-size: 10px; color: rgba(218,165,32,0.9); width: 28px;
+    }
+
+    #help {
+      position: fixed; top: 20px; left: 20px;
+      font-family: monospace; font-size: 10px; color: rgba(245,222,179,0.35);
+      letter-spacing: 0.05em; line-height: 1.7; pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="overlay">
+    <div id="plate-label">
+      <div class="regime" id="regime-name">HAECKEL_RADIAL</div>
+      <div class="latin" id="latin-name">Acantharia hexastyla</div>
+      <div class="reference" id="plate-ref">Plate I — Kunstformen der Natur, 1904</div>
+    </div>
+    <div id="shader-index">01 / 09</div>
+  </div>
+
+  <div id="help">
+    ← → or click arrows to cycle shaders<br>
+    Space — pause / resume<br>
+    R — reset uniforms
+  </div>
+
+  <div id="nav">
+    <button id="btn-prev">← prev</button>
+    <button id="btn-next">next →</button>
+  </div>
+
+  <div id="params-panel">
+    <h3>Uniforms</h3>
+    <div id="params-list"></div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

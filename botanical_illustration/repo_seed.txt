@@ -1,0 +1,26 @@
+REPO: botanical_illustration
+PURPOSE: Scientific botanical/natural history illustration visual grammar — Haeckel, Audubon, Redouté, Merian
+STACK: Three.js + WebGL2 + GLSL + Vite
+
+CORE MATH:
+- Radial symmetry: rotate input by (2*PI/n) and composite — 6/8/12/16-fold
+- Stipple texture: Poisson disk sample set at density d; dot at each point, size varies with local darkness
+- Watercolor wash: layered alpha compositing with noise-edge variation; wet bloom = distance_field dilation on color regions
+- Line weight hierarchy: stroke SDF with three threshold levels (primary/secondary/tertiary)
+- Cross-hatch shadow: two sets of parallel lines at 45° offset, density = local shadow depth
+- Wet edge bloom: at color region boundary, expand by 2–5px with decreasing alpha + hue shift warm
+- Cast shadow: offset duplicate of silhouette, very low alpha (0.05–0.15), soft blur
+
+PALETTES:
+- HAECKEL_PLATE: #F5DEB3, #DAA520, #8B4513, #4169E1, #228B22
+- AUDUBON_BIRD: #8B4513, #228B22, #FF4500, #87CEEB, #FFF8DC
+- REDOUTE_ROSE: #FFB6C1, #FF69B4, #228B22, #90EE90, #FFFACD
+- MERIAN_INSECT: #DAA520, #8B0000, #006400, #F5DEB3
+- SPECIMEN_CLEAN: #FFFEF5, #1C1C1C, #8B4513, #4169E1
+
+REGIMES:
+- HAECKEL_RADIAL: extreme radial symmetry, stipple texture, amber/cobalt/earth, plate arrangement
+- AUDUBON_FIELD: single bird, accurate plumage, perched branch, Latin name
+- WATERCOLOR_BOTANICAL: soft washes, wet blooms, root system, cream ground
+- MERIAN_INSECT_PLANT: insect life cycle on host plant, each stage labeled
+- CROSS_SECTION_PLATE: internal structure, clean white ground, heavy linework
