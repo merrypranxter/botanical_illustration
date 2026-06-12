@@ -1,0 +1,19 @@
+{
+  "repo": "botanical_illustration",
+  "type": "style_reference",
+  "aesthetic_category": "scientific_illustration",
+  "subcategories": ["natural_history", "botanical", "zoological", "radial_symmetry"],
+  "era": "1700-1910",
+  "references": ["Ernst Haeckel", "John James Audubon", "Pierre-Joseph Redoute", "Maria Sibylla Merian"],
+  "color_palettes": {
+    "HAECKEL_PLATE": ["#F5DEB3", "#DAA520", "#8B4513", "#4169E1", "#228B22"],
+    "AUDUBON_BIRD": ["#8B4513", "#228B22", "#FF4500", "#87CEEB", "#FFF8DC"],
+    "REDOUTE_ROSE": ["#FFB6C1", "#FF69B4", "#228B22", "#90EE90", "#FFFACD"],
+    "MERIAN_INSECT": ["#DAA520", "#8B0000", "#006400", "#F5DEB3"]
+  },
+  "regimes": ["HAECKEL_RADIAL", "AUDUBON_FIELD", "WATERCOLOR_BOTANICAL", "MERIAN_INSECT_PLANT", "CROSS_SECTION_PLATE"],
+  "pipeline_role": "context_source",
+  "compatible_with": ["fungi", "diatomic", "minerals", "crystalline", "morphogenesis"],
+  "reposcripter2": true,
+  "shaderforge": true
+}
